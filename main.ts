@@ -1,22 +1,22 @@
-// Function to add more skills
 function addMoreSkills(): void {
-    const skillsInput = document.querySelector("#skills") as HTMLInputElement;
+    const skillsContainer = document.getElementById("skillsContainer") as HTMLDivElement;
 
-    if (skillsInput.value.trim() === '') {
-        alert("Please enter a skill");
-    } else {
-        const skillsList = document.getElementById("skillsList") as HTMLUListElement;
-        if (!skillsList) {
-            alert("Skills list container not found. Please check your HTML.");
-            return;
-        }
+    const skillField = document.createElement("div");
+    skillField.classList.add("skillField");
 
-        const listItem = document.createElement("li");
-        listItem.textContent = skillsInput.value.trim();
-        skillsList.appendChild(listItem);
+    // Add HTML directly for the new skill input field
+    skillField.innerHTML = `
+        <input type="text" class="skill" placeholder="Skill Name (e.g., JavaScript)" required>
+    `;
 
-        skillsInput.value = '';
-    }
+    // Append the newly created skill field to the skills container
+    skillsContainer.appendChild(skillField);
+}
+
+// Attach the event listener to the "Add Skill" button
+let addSkillButton = document.getElementById("addSkill") as HTMLButtonElement;
+if (addSkillButton) {
+    addSkillButton.addEventListener("click", addMoreSkills);
 }
 
 // Function to add more education fields
@@ -29,7 +29,7 @@ function addMoreEducation(): void {
     educationField.innerHTML = `
         <input type="text" class="degree" placeholder="Degree (e.g., B.Sc. Computer Science)" required>
         <input type="text" class="institution" placeholder="Institution (e.g., XYZ University)" required>
-        <input type="text" class="gradYear" placeholder="Graduation Year (e.g., 2024)" required>
+        <input type="number" class="gradYear" placeholder="Graduation Year (e.g., 2024)" required>
     `;
 
     educationContainer.appendChild(educationField);
@@ -45,15 +45,14 @@ function addMoreExperience(): void {
     experienceField.innerHTML = `
         <input type="text" class="company" placeholder="Company Name (e.g., ABC Corp)" required>
         <input type="text" class="role" placeholder="Role/Position (e.g., Software Developer)" required>
-        <input type="text" class="experienceYears" placeholder="Years Worked (e.g., 2019-2022)" required>
+        <input type="number" class="experienceYears" placeholder="Years Worked (e.g., 2019-2022)" required>
     `;
 
     experienceContainer.appendChild(experienceField);
 }
 
 // Attach event listeners to the buttons
-const addSkillButton = document.getElementById("addSkill") as HTMLButtonElement;
-addSkillButton?.addEventListener("click", addMoreSkills);
+
 
 const addEduButton = document.getElementById("addMoreEducation") as HTMLButtonElement;
 addEduButton?.addEventListener("click", addMoreEducation);
@@ -62,15 +61,12 @@ const addExperienceButton = document.getElementById("addExperience") as HTMLButt
 addExperienceButton?.addEventListener("click", addMoreExperience);
 
 // Function to collect skills
-function collectSkills(): string {
-    const skillsList = document.querySelectorAll("#skillsList li");
-    let skills = '';
-
-    skillsList.forEach(item => {
-        skills += (item as HTMLLIElement).textContent + "<br>";
+function collectSkills(): { skillName: string}[] {
+    const skillFields = document.querySelectorAll("#skillsContainer .skillField"); // Update the selector
+    return Array.from(skillFields).map(field => {
+        const skillName = (field.querySelector(".skill") as HTMLInputElement)?.value || 'Not provided';
+        return { skillName};
     });
-
-    return skills.trim();
 }
 
 // Function to collect education details
@@ -168,7 +164,7 @@ function generateResume(event: Event): void {
         <h4>Profile Summary</h4>
         <p class="profile"> ${profileSummary}</p>
         <h4>Skills</h4>
-        <p class="profile"> ${skills}</p>
+     <p class="profile">${skills.map(skill => skill.skillName).join('<br>')}</p>
         <h4>Education</h4>
         <p class="profile">${education}</p>
         <h4>Work Experience</h4>
@@ -180,6 +176,9 @@ function generateResume(event: Event): void {
         <p class="profile"><strong>GitHub:</strong> <a href="${contact.github}" target="_blank">${contact.github}</a></p>
         <p class="profile"><strong>Website:</strong> <a href="${contact.website}" target="_blank">${contact.website}</a></p>
     `;
+
+    (document.getElementById("resumeForm") as HTMLFormElement).style.display = 'none';
+    resumeOutput.style.display = 'block';
 }
 
 // Attach event listener to the form submission
