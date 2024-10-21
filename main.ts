@@ -140,7 +140,8 @@ function generateResume(event: Event): void {
 
     // Collect form values
     const profileImage = (document.getElementById("profileImagePreview") as HTMLImageElement).src;
-    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const nameInput = (document.getElementById("name") as HTMLInputElement).value.trim();
+    const name = nameInput?nameInput.charAt(0).toUpperCase() + nameInput.slice(1):"No name provided";
     const subheading = (document.getElementById("subheading") as HTMLInputElement).value;
     const profileSummary = (document.getElementById("profileSummary") as HTMLTextAreaElement).value;
 

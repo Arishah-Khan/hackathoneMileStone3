@@ -108,9 +108,12 @@ function generateResume(event) {
     event.preventDefault();
     // Collect form values
     const profileImage = document.getElementById("profileImagePreview").src;
-    const name = document.getElementById("name").value;
+    const nameInput = document.getElementById("name").value.trim();
+    const name = nameInput ? nameInput.charAt(0).toUpperCase() + nameInput.slice(1) : "No name provided";
     const subheading = document.getElementById("subheading").value;
     const profileSummary = document.getElementById("profileSummary").value;
+    console.log('Name input:', nameInput);
+    console.log('Transformed name:', name);
     // Collect all other data
     const skills = collectSkills();
     const education = collectEducation();
