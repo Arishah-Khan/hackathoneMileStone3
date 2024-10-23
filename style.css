@@ -34,7 +34,7 @@ input[type="number"],
 input[type="email"],
 input[type="url"],
 textarea {
-    width: 50%;
+    width: 60%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -130,9 +130,14 @@ h2{
         padding: 8px 12px;
     
     }
+    input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+textarea {
+    width: 90%;
 }
-
-/* Change placeholder text color for all input and textarea elements */
+}
 input::placeholder,
 textarea::placeholder {
     color: #007bff; /* Light gray color */
@@ -153,10 +158,6 @@ textarea:hover {
     border-color: #007bff; /* Change border color on hover */
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.3); /* Lighter blue shadow on hover */
 }
-
-
-
-
 
 #skillsList {
     list-style-type: none;
