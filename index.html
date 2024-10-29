@@ -4,35 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h1>Dynamic Resume Builder</h1>
+    <h1>Editable Resume Builder</h1>
     <form id="resumeForm">
         <!-- Profile Picture Upload -->
-<div class="profilePicContainer">
-    <label for="profileImage">Upload Profile Picture:</label>
-    <input type="file" id="profileImage" accept="image/*">
-    <div class="imagePreviewContainer">
-        <img id="profileImagePreview" src="" alt="Profile Image" style="display: none;">
-    </div>
-</div>
+        <div class="profilePicContainer">
+            <label for="profileImage">Upload Profile Picture:</label>
+            <input type="file" id="profileImage" accept="image/*">
+            <div class="imagePreviewContainer">
+                <img id="profileImagePreview" src="" alt="Profile Image" style="display: none;">
+            </div>
+        </div>
 
-        <!-- Full Name Input -->
-        <div class="name">
+        <div>
             <div>
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" placeholder="Full Name" required></div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
             <div>
-            <label for="subheading">Profession:</label>
-            <input type="text" id="subheading" placeholder="Enter your profession (e.g., Doctor, Engineer, Teacher)" required></div>
+                <label for="subheading">Profession:</label>
+                <input type="text" id="subheading" placeholder="Enter your profession (e.g., Doctor, Engineer, Teacher)" required>
+            </div>
         </div>
 
         <h2>Skills</h2>
-        <div id="skillsContainer" class="name">
+        <div id="skillsContainer">
+            <div class="skillField">
             <label for="skills">Skill:</label>
-            <input type="text" class="skill" placeholder="Skill" id="skills">
-            <ul id="skillsList" class="name"></ul> <!-- Skills will be added here -->
+            <input type="text" class="skill" placeholder="Skill Name (e.g., JavaScript)" id="skills">
+        </div>
         </div>
         <button type="button" id="addSkill">Add More Skills</button>
 
@@ -44,13 +50,13 @@
         <h2>Education</h2>
         <div id="educationContainer">
             <!-- Initial Education Field -->
-            <div class="educationField name">
+            <div class="educationField">
                 <label for="degree">Degree:</label>
                 <input type="text" class="degree" placeholder="Degree (e.g., B.Sc. Computer Science)" required>
                 <label for="institution">Institution:</label>
                 <input type="text" class="institution" placeholder="Institution (e.g., XYZ University)" required>
                 <label for="gradYear">Graduation Year:</label>
-                <input type="number" class="gradYear" placeholder="Graduation Year (e.g., 2024)" required>
+                <input type="text" class="gradeYear" placeholder="Graduation Year (e.g., 2022 or 2022-2023)" pattern="^\d{4}(-\d{4})?$" title="Enter year in format: 2022 or 2022-2023"  required>
             </div>
         </div>
         <button type="button" id="addMoreEducation">Add More Education</button>
@@ -58,26 +64,29 @@
         <h2>Work Experience</h2>
         <div id="experienceContainer">
             <!-- Initial Experience Field -->
-            <div class="experienceField name">
+            <div class="experienceField">
                 <label for="company">Company Name:</label>
-                <input type="text" class="company" placeholder="Company Name (e.g., ABC Corp)" required>
+                <input type="text" class="company" placeholder="Company Name (e.g., ABC Crop)" required>
                 <label for="role">Role/Position:</label>
                 <input type="text" class="role" placeholder="Role/Position (e.g., Software Developer)" required>
                 <label for="experienceYears">Years Worked:</label>
-                <input type="number" class="experienceYears" placeholder="Years Worked (e.g., 2019-2022)" required>
+                <input type="text" class="experienceYears" placeholder="Years Worked (e.g., 2022 or 2022-2023)" pattern="^\d{4}(-\d{4})?$" title="Enter year in format: 2022 or 2022-2023" required>
+                <label for="experienceDes">Description:</label>
+                <textarea type="textarea" placeholder="Summarize your experience at [Company Name] and describe your role." rows="4" required class="experienceDes"></textarea>
+
             </div>
         </div>
         <button type="button" id="addExperience">Add More Experience</button>
 
         <h2>Contact Me</h2>
-        <div id="contactContainer" class="name">
-            <div class="contactField" >
+        <div id="contactContainer">
+            <div class="contactField">
                 <label for="contactEmail">Email:</label>
                 <input type="email" id="contactEmail" placeholder="Email (e.g., yourname@example.com)" required>
             </div>
             <div class="contactField">
                 <label for="contactPhone">Phone Number:</label>
-                <input type="number" id="contactPhone" placeholder="Phone Number (e.g., +1-234-567-8901)" required>
+                <input type="text" id="contactPhone" placeholder="e.g., 03001234567" pattern="\d{10,11}" title="Enter a 10 or 11 digit mobile number without spaces"required>
             </div>
             <div class="contactField">
                 <label for="linkedin">LinkedIn Profile URL:</label>
@@ -94,7 +103,7 @@
         </div>
 
         <div class="btn">
-        <button type="submit">Generate Resume</button>
+            <button type="submit" onclick="generatedResume()">Generate Resume</button>
         </div>
     </form>
 
