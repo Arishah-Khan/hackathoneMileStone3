@@ -1,114 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Resume Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>My Resume</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <h1>Editable Resume Builder</h1>
-    <form id="resumeForm">
-        <!-- Profile Picture Upload -->
-        <div class="profilePicContainer">
-            <label for="profileImage">Upload Profile Picture:</label>
-            <input type="file" id="profileImage" accept="image/*">
-            <div class="imagePreviewContainer">
-                <img id="profileImagePreview" src="" alt="Profile Image" style="display: none;">
+
+    <h1>Resume Preview</h1>
+
+    <div id="resumeOutput">
+
+
+        <div class="container">
+            <div class="left">
+
+                <div class="resume"><img src="images/profile.png" alt="Profile Image"
+                        style="max-width: 200px; height: auto; border-radius: 50%; margin-bottom: 20px;" class="img">
+                </div>
+                <div>
+                    <h3 class="setWidth">About Me</h3>
+                    <p class="sizeChange" id="short-para">
+                        I hold a Master's degree in Mathematics from Karachi University, with strong analytical thinking
+                        and
+                        problem-solving skills. Currently gaining hands-on experience in AI and web development.</p>
+
+
+                </div>
+                <div>
+                    <h3 class="setWidth">Contact Information</h3>
+
+                    <p class="sizeChange"><strong><i class="fas fa-phone"></i> Phone Number:</strong>+92-333-444-5555
+                    </p>
+                    <p class="sizeChange"><strong><i class="fas fa-envelope"></i> Email:</strong>
+                        arishahsanaullah78@gmail.com</p>
+                    <p class="sizeChange"><strong><i class="fas fa-regular fa-address-card"></i> Adress:</strong>123
+                        Main St, City, State, Zip
+                    </p>
+                    <p class="sizeChange"><strong><i class="fab fa-linkedin"></i> LinkedIn:</strong> <a
+                            href="https://www.linkedin.com/in/arishah-khan-b606092b8/"
+                            target="_blank">https://www.linkedin.com/in/arishah-khan-b606092b8/</a></p>
+                    <p class="sizeChange"><strong><i class="fab fa-github"></i> GitHub:</strong> <a
+                            href="https://github.com/Arishah-Khan" target="_blank">https://github.com/Arishah-Khan</a>
+                    </p>
+                    <p class="sizeChange"><strong><i class="fas fa-globe"></i> Website:</strong> <a
+                            href="https://arishah-khan-portfolio.vercel.app/"
+                            target="_blank">https://arishah-khan-portfolio.vercel.app/</a></p>
+                </div>
+
+                <div>
+                    <h3 class="setWidth">Languages</h3>
+                    <ul>
+                        <li class="sizeChange">English</li>
+                        <li class="sizeChange">Urdu</li>
+                        <li class="sizeChange">Pashto</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="setWidth">Skills</h3>
+                    <ul class="lists">
+                        <li class="sizeChange">HTML</li>
+                        <li class="sizeChange">CSS</li>
+                        <li class="sizeChange">JavaScript</li>
+                        <li class="sizeChange">TypeScript</li>
+                        <li class="sizeChange">Bootstrap</li>
+                        <li class="sizeChange">GitHub</li>
+                        <li class="sizeChange">Web Design</li>
+                        <li class="sizeChange">Web Development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="bgColor">
+                    <h3 class="nameHeading">Arishah Khan</h3>
+                    <div class="styleline"></div>
+                    <h5 class="sub">Full Stack Developer</h5>
+                </div>
+                <div class="paddingSet">
+                    <div>
+                        <h3 class="nameHeadingStyle">Education</h3>
+                        <div class="styleline"></div>
+
+                        <div id="education">
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Master's Degree in Mathematics
+                                </div>
+                                <div class="instituteStyle">Karachi University, Karachi</div>
+                                <div class="instituteStyle">2020-2022</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Bachelor's Degree in Science
+                                </div>
+                                <div class="instituteStyle">DJ Sindh Government Science College, Karachi</div>
+                                <div class="instituteStyle">2018-2020</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Intermediate (Pre-Engineering)
+                                </div>
+                                <div class="instituteStyle">KMA Girls Degree College, Karachi</div>
+                                <div class="instituteStyle">2016-2018</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Matriculation</div>
+                                <div class="instituteStyle">Al-Hamd Grammar School, Karachi</div>
+                                <div class="instituteStyle">2014-2016</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Certification in Cloud Applied
+                                    Generative AI</div>
+                                <div class="instituteStyle">Governor Sindh Pakistan Initiative</div>
+                                <div class="instituteStyle">Ongoing</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Web and Mobile App Development
+                                    Program</div>
+                                <div class="instituteStyle">Saylani Mass IT Training</div>
+                                <div class="instituteStyle">Ongoing</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="nameHeadingStyle">Work Experience</h3>
+                        <div class="styleline"></div>
+
+                        <div class="educationSection" id="experience">
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> Private Tutor</div>
+                                <div class="instituteStyle">2021-2023</div>
+                                <div class="instituteStyle">Provided personalized tutoring for students across multiple
+                                    subjects, including mathematics, science, and languages.</div>
+                            </div>
+                            <div class="educationField">
+                                <div class="degreeStyle"><span class="diamond"></span> ABC Company</div>
+                                <div class="instituteStyle">2024</div>
+                                <div class="instituteStyle">Web Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div>
-            <div>
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" placeholder="Full Name" required>
-            </div>
-            <div>
-                <label for="subheading">Profession:</label>
-                <input type="text" id="subheading" placeholder="Enter your profession (e.g., Doctor, Engineer, Teacher)" required>
-            </div>
+<div class="create">
+        <button id="create">Create Your Resume</button>
         </div>
-
-        <h2>Skills</h2>
-        <div id="skillsContainer">
-            <div class="skillField">
-            <label for="skills">Skill:</label>
-            <input type="text" class="skill" placeholder="Skill Name (e.g., JavaScript)" id="skills">
-        </div>
-        </div>
-        <button type="button" id="addSkill">Add More Skills</button>
-
-        <h2>Profile Summary</h2>
-        <label for="profileSummary">Summary:</label>
-        <textarea id="profileSummary" placeholder="Write a brief profile summary" rows="4" required class="name"></textarea>
-
-        <!-- Dynamic Education Section -->
-        <h2>Education</h2>
-        <div id="educationContainer">
-            <!-- Initial Education Field -->
-            <div class="educationField">
-                <label for="degree">Degree:</label>
-                <input type="text" class="degree" placeholder="Degree (e.g., B.Sc. Computer Science)" required>
-                <label for="institution">Institution:</label>
-                <input type="text" class="institution" placeholder="Institution (e.g., XYZ University)" required>
-                <label for="gradYear">Graduation Year:</label>
-                <input type="text" class="gradeYear" placeholder="Graduation Year (e.g., 2022 or 2022-2023)" pattern="^\d{4}(-\d{4})?$" title="Enter year in format: 2022 or 2022-2023"  required>
-            </div>
-        </div>
-        <button type="button" id="addMoreEducation">Add More Education</button>
-
-        <h2>Work Experience</h2>
-        <div id="experienceContainer">
-            <!-- Initial Experience Field -->
-            <div class="experienceField">
-                <label for="company">Company Name:</label>
-                <input type="text" class="company" placeholder="Company Name (e.g., ABC Crop)" required>
-                <label for="role">Role/Position:</label>
-                <input type="text" class="role" placeholder="Role/Position (e.g., Software Developer)" required>
-                <label for="experienceYears">Years Worked:</label>
-                <input type="text" class="experienceYears" placeholder="Years Worked (e.g., 2022 or 2022-2023)" pattern="^\d{4}(-\d{4})?$" title="Enter year in format: 2022 or 2022-2023" required>
-                <label for="experienceDes">Description:</label>
-                <textarea type="textarea" placeholder="Summarize your experience at [Company Name] and describe your role." rows="4" required class="experienceDes"></textarea>
-
-            </div>
-        </div>
-        <button type="button" id="addExperience">Add More Experience</button>
-
-        <h2>Contact Me</h2>
-        <div id="contactContainer">
-            <div class="contactField">
-                <label for="contactEmail">Email:</label>
-                <input type="email" id="contactEmail" placeholder="Email (e.g., yourname@example.com)" required>
-            </div>
-            <div class="contactField">
-                <label for="contactPhone">Phone Number:</label>
-                <input type="text" id="contactPhone" placeholder="e.g., 03001234567" pattern="\d{10,11}" title="Enter a 10 or 11 digit mobile number without spaces"required>
-            </div>
-            <div class="contactField">
-                <label for="linkedin">LinkedIn Profile URL:</label>
-                <input type="url" id="linkedin" placeholder="LinkedIn Profile URL (e.g., https://linkedin.com/in/yourprofile)">
-            </div>
-            <div class="contactField">
-                <label for="github">GitHub Profile URL:</label>
-                <input type="url" id="github" placeholder="GitHub Profile URL (e.g., https://github.com/yourusername)">
-            </div>
-            <div class="contactField">
-                <label for="website">Personal Website or Portfolio URL:</label>
-                <input type="url" id="website" placeholder="Personal Website or Portfolio URL (e.g., https://yourwebsite.com)">
-            </div>
-        </div>
-
-        <div class="btn">
-            <button type="submit" onclick="generatedResume()">Generate Resume</button>
-        </div>
-    </form>
-
-    <div id="resumeOutput" style="display: none;"></div>
-
-    <script src="main.js"></script>
+    </div>
+    <script src="create.js"></script>
 </body>
+
 </html>
